@@ -12,7 +12,7 @@
 
 int main(){
     // Set number of trials
-    const unsigned int N = 1e4;
+    const int N = 1e4;
 
     // Set the random number generator
     std::default_random_engine generator;
