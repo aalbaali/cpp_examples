@@ -119,4 +119,26 @@ int main(){
     // Generate random numbers. These are UNIFORMLY distributed random numbers (between -1 and 1).
     std::cout << "Random SE2 element:\n" << std::endl;
     std::cout << manif::SE2d::Random() << std::endl;
+
+    T_ba_ab.translation()[0] = 1;
+    T_ba_ab.translation()[1] = 2;
+
+    std::cout << T_ba_ab.rotation() << std::endl;
+    std::cout << T_ba_ab.transform() << std::endl;    
+
+    auto D = T_ba_ab.isometry();
+    std::cout << D.affine() * Eigen::Vector3d( 0, 0, 1) << std::endl;
+    std::cout << T_ba_ab.isometry().affine() << std::endl;
+    // manif::SE2d X( Eigen::Vector2d(1, 2), Eigen::Matrix2d::Identity());
+    // std::cout << X.rotation() << std::endl;
+    manif::SE2d X;
+    X.setIdentity();
+    std::cout << X << std::endl;
+    manif::SE2Tangentd dx( 1, 2, 0);
+
+    
+    std::cout << dx << std::endl;
+    std::cout << X + 0.1 * dx << std::endl;
+
+    // std::cout << "dx: " << dx << std::endl;
 }
